@@ -1,0 +1,26 @@
+.person-slider {
+  width: 930px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.person-pop {
+  overflow: hidden;
+}
+
+.person-wrapper {
+  display: flex;
+  transition: all 1s ease;
+}
+
+@media (max-width: 1100px) {
+  .person-slider {
+    width: 615px;
+  }
+}
+
+@media (max-width: 800px) {
+  .person-slider {
+    width: 300px;
+  }
+}

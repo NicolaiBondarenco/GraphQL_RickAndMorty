@@ -1,0 +1,8 @@
+.Logo__wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.Logo__image {
+  height: 260px;
+}

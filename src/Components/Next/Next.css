@@ -1,0 +1,18 @@
+.next {
+  display: flex;
+  background-color: transparent;
+  top: 130px;
+  right: -80px;
+  position: absolute;
+}
+
+.next > span {
+  padding: 10px;
+}
+
+@media (max-width: 550px) {
+  .next {
+    right: 60px;
+    top: 340px;
+  }
+}
