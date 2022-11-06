@@ -4,6 +4,7 @@ import { GET_PERSONS } from '../../GraphQL/ApolloPersons'
 import PersonItem from '../PersonItem/PersonItem'
 import Prev from '../Prev/Prev'
 import Next from '../Next/Next'
+import Skeleton from '../Skeleton/Skeleton'
 import './PersonList.css'
 
 const PersonList = () => {
@@ -31,16 +32,19 @@ const PersonList = () => {
   }
 
   if (error) return <p className="text-center">Something went wrong!</p>
-  if (loading) return <p className="text-center">Loading...</p>
 
   return (
     <div className="person-slider">
       <Prev handlerPrev={handlerPrev} />
       <div className="person-pop" ref={listRef}>
         <div className="person-wrapper" ref={sliderMove}>
-          {data.characters.results.map((el) => (
-            <PersonItem key={el.id} {...el} />
-          ))}
+          {loading
+            ? [...new Array(3)].map((_, id) => {
+                return <Skeleton key={id} />
+              })
+            : data.characters.results.map((el) => (
+                <PersonItem key={el.id} {...el} />
+              ))}
         </div>
       </div>
       <Next handlerNext={handlerNext} />
