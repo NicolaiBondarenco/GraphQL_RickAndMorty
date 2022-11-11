@@ -5,3 +5,8 @@
 .PersonItem img {
   border-radius: 20px;
 }
+
+.text-center {
+  font-weight: bold;
+  font-size: 16px;
+}

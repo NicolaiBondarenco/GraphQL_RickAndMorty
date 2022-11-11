@@ -1,0 +1,21 @@
+.pagination {
+  justify-content: center;
+  margin: 15px 0 0 0;
+}
+
+.pagination__item {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  margin-right: 10px;
+  background-color: rgb(182, 184, 152);
+}
+
+.pagination__item-active {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  margin-right: 10px;
+  background-color: rgb(115, 118, 64);
+  transition: all 0.5s ease;
+}

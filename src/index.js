@@ -4,10 +4,13 @@ import './index.css'
 import App from './Components/App/App'
 import { ApolloProvider } from '@apollo/client'
 import { client } from './GraphQL/ApolloPersons'
+import { ThemeContext } from './Context/ThemeContext'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <ApolloProvider client={client}>
-    <App />
+    <ThemeContext>
+      <App />
+    </ThemeContext>
   </ApolloProvider>,
 )

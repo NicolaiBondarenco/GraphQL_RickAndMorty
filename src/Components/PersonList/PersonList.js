@@ -1,10 +1,11 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import { useQuery } from '@apollo/client'
 import { GET_PERSONS } from '../../GraphQL/ApolloPersons'
 import PersonItem from '../PersonItem/PersonItem'
 import Prev from '../Prev/Prev'
 import Next from '../Next/Next'
 import Skeleton from '../Skeleton/Skeleton'
+import Pagination from '../Pagination/Pagination'
 import './PersonList.css'
 
 const PersonList = () => {
@@ -12,7 +13,9 @@ const PersonList = () => {
   const countMove = useRef(0)
   const listRef = useRef()
   const sliderMove = useRef()
-  console.log(data?.characters.results.length)
+  const [numPoints, setNumPoints] = useState(1)
+
+  const amountList = Math.ceil(data?.characters.results.length / 3)
 
   const handlerNext = () => {
     const lengthLine =
@@ -21,6 +24,7 @@ const PersonList = () => {
     const widthListRef = listRef.current.offsetWidth
     countMove.current += widthListRef + 15
     sliderMove.current.style = `transform: translate(-${countMove.current}px)`
+    if (numPoints <= amountList) setNumPoints((prev) => prev + 1)
   }
 
   const handlerPrev = () => {
@@ -29,6 +33,7 @@ const PersonList = () => {
     countMove.current -= widthListRef + 15
     sliderMove.current.style = `transform: translate(-${countMove.current}px)`
     console.log(countMove.current)
+    if (numPoints <= amountList) setNumPoints((prev) => prev - 1)
   }
 
   if (error) return <p className="text-center">Something went wrong!</p>
@@ -48,6 +53,7 @@ const PersonList = () => {
         </div>
       </div>
       <Next handlerNext={handlerNext} />
+      <Pagination amountList={amountList} numPoints={numPoints} />
     </div>
   )
 }
