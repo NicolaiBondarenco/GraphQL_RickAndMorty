@@ -1,7 +1,7 @@
 import React from 'react'
 import './Logo.css'
 
-const Logo = () => {
+const Logo: React.FC = () => {
   return (
     <div className="Logo">
       <div className="Logo__wrapper">

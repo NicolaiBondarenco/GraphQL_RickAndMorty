@@ -1,7 +1,11 @@
 import React from 'react'
 import './Next.css'
 
-const Next = ({ handlerNext }) => {
+type PropsType = {
+  handlerNext: () => void
+}
+
+const Next: React.FC<PropsType> = ({ handlerNext }) => {
   return (
     <button className="next">
       <span className="material-symbols-outlined" onClick={() => handlerNext()}>

@@ -1,10 +1,10 @@
-import React, { useContext } from 'react'
-import { Context } from '../../Context/ThemeContext'
+import { useContext } from 'react'
+import { Context, ThemeContextProps } from '../../Context/ThemeContext'
 import './Theme.css'
 
 const Theme = () => {
-  const { onChangeTheme, theme } = useContext(Context)
-  const findBody = document.querySelector('body')
+  const { onChangeTheme, theme } = useContext<ThemeContextProps>(Context)
+  const findBody = document.querySelector('body') as HTMLElement
 
   if (!theme) {
     findBody.style.backgroundColor = '#e2e3cb'

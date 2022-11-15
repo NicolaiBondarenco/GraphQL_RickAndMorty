@@ -1,7 +1,11 @@
-import React from 'react'
 import './Pagination.css'
 
-const Pagination = ({ amountList, numPoints }) => {
+type PaginationProps = {
+  amountList: number
+  numPoints: number
+}
+
+const Pagination: React.FC<PaginationProps> = ({ amountList, numPoints }) => {
   let points = []
 
   for (let i = 1; i <= amountList; i++) {
